@@ -52,6 +52,14 @@ export default function TicketDetails() {
 
                 if (data.success && data.user) {
                     const fetchedUser = data.user;
+                    // Sheets returns numbers for some string fields — coerce them
+                    fetchedUser.sectionNo = String(fetchedUser.sectionNo ?? '');
+                    fetchedUser.row = String(fetchedUser.row ?? '');
+                    fetchedUser.seatNumbers = String(fetchedUser.seatNumbers ?? '');
+                    fetchedUser.userId = String(fetchedUser.userId ?? '');
+                    fetchedUser.section = String(fetchedUser.section ?? '');
+                    fetchedUser.gate = String(fetchedUser.gate ?? '');
+                    fetchedUser.entrance = String(fetchedUser.entrance ?? '');
                     setUser(fetchedUser);
                     
                     // Fetch admin who transferred this ticket

@@ -21,6 +21,10 @@ export interface User {
   section: string;
   sectionNo: string;
   row: string;
+  gate?: string;
+  entrance?: string;
+  hospitalityArea?: string;
+  ticketHolder?: string;
   ageRestriction: string;
   description: string;
   terms: string;
@@ -61,6 +65,8 @@ export interface Ticket {
   gate?: string;
   entrance?: string;
   hospitalityArea?: string;
+  category?: string;
+  ticketHolder?: string;
   ticketFolderId: string;
   ageRestriction: string;
   description: string;

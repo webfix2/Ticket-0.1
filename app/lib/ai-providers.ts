@@ -9,6 +9,7 @@ export interface AiTicketData {
   gate: string;
   entrance: string;
   hospitalityArea: string;
+  ticketHolder: string;
   row: string;
   seatNumbers: string;
   category: string;
@@ -290,6 +291,7 @@ Return ONLY valid JSON array, no markdown:
         gate: '',
         entrance: '',
         hospitalityArea: '',
+        ticketHolder: '',
         row: '',
         seatNumbers: '',
         category: '',
@@ -316,6 +318,7 @@ function normalizeTicketData(item: any, searchResult: SearchResult): AiTicketDat
     gate: item.gate || '',
     entrance: item.entrance || '',
     hospitalityArea: item.hospitalityArea || '',
+    ticketHolder: item.ticketHolder || '',
     row: item.row || '',
     seatNumbers: item.seatNumbers || '',
     category: item.category || '',

@@ -83,7 +83,7 @@ function getPlatformDisplayName(platform) {
   const platformLower = (platform || "").toLowerCase();
   if (platformLower === "uefa") return "UEFA";
   if (platformLower === "ticketmaster") return "Ticketmaster";
-  if (platformLower === "fifa") return "FIFA";
+  if (platformLower === "fifa") return "FIFA World Cup 26";
   return "Viagogo";
 }
 
@@ -128,13 +128,8 @@ function ensureAdminToken(sheet, params) {
     return ContentService.createTextOutput(JSON.stringify({ error: "Admin not found" })).setMimeType(ContentService.MimeType.JSON);
   }
 
-  const existingToken = String(data[rowIndex][tokenCol]).trim();
-  if (existingToken && existingToken !== "") {
-    // Token already exists, return it
-    return ContentService.createTextOutput(JSON.stringify({ success: true, token: existingToken })).setMimeType(ContentService.MimeType.JSON);
-  }
-
-  // Generate and save a new token
+  // Always generate a new token (single-device enforcement)
+  // This invalidates any previous session on another device
   const newToken = generateToken();
   const sheetRange = sheet.getRange(rowIndex + 1, tokenCol + 1);
   sheetRange.setValue(newToken);
@@ -196,13 +191,11 @@ function verifyAdminSession(sheet, params) {
 
   const data = sheet.getDataRange().getValues();
 
-  // Lookup by token first, fallback to adminId
+  // Lookup by token ONLY (single-device enforcement)
+  // No adminId fallback — if token doesn't match, session is invalid
   let rowIndex = -1;
   if (params.token && tokenCol !== -1) {
     rowIndex = data.findIndex(row => String(row[tokenCol]).trim() === String(params.token).trim());
-  }
-  if (rowIndex === -1 && params.adminId && adminIdCol !== -1) {
-    rowIndex = data.findIndex(row => String(row[adminIdCol]).trim() === String(params.adminId).trim());
   }
 
   if (rowIndex === -1) {

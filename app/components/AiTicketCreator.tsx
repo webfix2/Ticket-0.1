@@ -58,6 +58,7 @@ export default function AiTicketCreator({
             gate: '',
             entrance: '',
             hospitalityArea: '',
+            ticketHolder: '',
             row: '',
             seatNumbers: '',
             category: '',

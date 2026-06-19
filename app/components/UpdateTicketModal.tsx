@@ -167,7 +167,66 @@ const UpdateTicketModal: React.FC<UpdateTicketModalProps> = ({ ticket, onClose }
                 className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
               />
             </div>
-            
+
+            <div>
+              <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Gate</label>
+              <input
+                type="text"
+                name="gate"
+                value={formData.gate || ''}
+                onChange={handleChange}
+                placeholder="e.g. G, 3, A"
+                className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Entrance</label>
+              <input
+                type="text"
+                name="entrance"
+                value={formData.entrance || ''}
+                onChange={handleChange}
+                placeholder="e.g. E, VIP, North"
+                className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Hospitality Area</label>
+              <input
+                type="text"
+                name="hospitalityArea"
+                value={formData.hospitalityArea || ''}
+                onChange={handleChange}
+                placeholder="e.g. Village A, Lounge B"
+                className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Category</label>
+              <input
+                type="text"
+                name="category"
+                value={formData.category || ''}
+                onChange={handleChange}
+                className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Ticket Holder</label>
+              <input
+                type="text"
+                name="ticketHolder"
+                value={formData.ticketHolder || ''}
+                onChange={handleChange}
+                placeholder="e.g. John Doe"
+                className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
+              />
+            </div>
+
             <div>
               <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Row*</label>
               <input
@@ -177,6 +236,18 @@ const UpdateTicketModal: React.FC<UpdateTicketModalProps> = ({ ticket, onClose }
                 onChange={handleChange}
                 className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
                 required
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-1 ml-1">Seat Numbers</label>
+              <input
+                type="text"
+                name="seatNumbers"
+                value={formData.seatNumbers || ''}
+                onChange={handleChange}
+                placeholder="e.g. 101, 102"
+                className="w-full p-3 bg-gray-50 border-2 border-transparent rounded-xl focus:border-[#026CDF] focus:bg-white outline-none transition-all font-bold text-[#001B41]"
               />
             </div>
             
