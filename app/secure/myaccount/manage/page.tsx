@@ -23,7 +23,8 @@ import {
     faPaperPlane,
     faEdit,
     faChevronLeft,
-    faUsers
+    faUsers,
+    faEye
 } from '@fortawesome/free-solid-svg-icons';
 
 const COUNTRY_CODES: Record<string, string> = {
@@ -255,6 +256,7 @@ export default function ManageDashboard() {
                             <MenuItem icon={faHeart} label="My Favourites" />
                             <MenuItem icon={faCreditCard} label="Saved Payment Methods" />
                             <MenuItem icon={faMobileAlt} label="Change App Icon" />
+                            <MenuItem icon={faEye} label="Reveal All Hidden Tickets" action={() => router.push('/secure/myaccount/tickets?revealAll=1')} />
                         </div>
                     </div>
 
