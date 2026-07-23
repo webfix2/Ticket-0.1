@@ -339,26 +339,26 @@ export default function TicketDetails() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-2">From:</h3>
-                  <div className="flex items-center">
-                    <div className="bg-gray-200 rounded-full p-2 mr-3">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-gray-200 rounded-full p-2 shrink-0">
                       <FontAwesomeIcon icon={faUser} className="text-gray-600" />
                     </div>
-                    <div>
-                      <p className="font-medium">{user.senderName || "John Doe"}</p>
-                      <p className="text-sm text-gray-600">{user.senderEmail || "john.doe@example.com"}</p>
+                    <div className="min-w-0">
+                      <p className="font-medium truncate">{user.senderName || "John Doe"}</p>
+                      <p className="text-sm text-gray-600 truncate">{user.senderEmail || "john.doe@example.com"}</p>
                     </div>
                   </div>
                 </div>
                 
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-2">To:</h3>
-                  <div className="flex items-center">
-                    <div className="bg-gray-200 rounded-full p-2 mr-3">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-gray-200 rounded-full p-2 shrink-0">
                       <FontAwesomeIcon icon={faUser} className="text-gray-600" />
                     </div>
-                    <div>
-                      <p className="font-medium">{user.fullName}</p>
-                      <p className="text-sm text-gray-600">{user.emailAddress}</p>
+                    <div className="min-w-0">
+                      <p className="font-medium truncate">{user.fullName || user.emailAddress?.split('@')[0]}</p>
+                      <p className="text-sm text-gray-600 truncate">{user.emailAddress}</p>
                     </div>
                   </div>
                 </div>
@@ -371,7 +371,7 @@ export default function TicketDetails() {
                         <FontAwesomeIcon icon={faClock} className="text-gray-500 mt-1 mr-2" />
                         <div>
                           <p className="font-medium">Door Time</p>
-                          <p className="text-gray-600">{user.doorTime}</p>
+                          <p className="text-gray-600">{user.doorTime || 'TBD'}</p>
                         </div>
                       </li>
                       <li className="flex items-start">
